@@ -22,7 +22,7 @@ public class UserController {
     Good for small set of record set, for large set we need implement some limit size
     or pagination
      */
-    @GetMapping(value = "test")
+    @GetMapping(value = "/test")
     public Iterable<UserEntity> getUser() {
         return userService.findAllUser();
     }
