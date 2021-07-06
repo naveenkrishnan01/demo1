@@ -47,5 +47,8 @@ public class UserController {
         return userService.createUser(userEntity);
     }
 
-
+    @GetMapping("/name/{firstName}")
+    public List<UserEntity>getNameByPartialSearch(@PathVariable String firstName){
+        return userService.getNameByPartialSearch(firstName);
+    }
 }

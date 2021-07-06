@@ -5,8 +5,6 @@
 Java-8
 Maven - Build Tool # Gradle is another option
 Spring Dependencies - check pom.xml
-Maven - Build Tool # Gradle is another option
-Spring Dependencies - check pom.xml
 ```
 
 ### Code Component
@@ -33,6 +31,14 @@ Unit test - Junit5/Mockito
   - Test for Jpa and Services
 
 ```
+### Following api can be tested
+```sh
+   http://localhost:8080/test  - GET (gives all records in DB)
+   http://localhost:8080/test/1 - GET (Will give one record back based on id)
+   http://localhost:8080/name/way - GET (Will give all the records that matches the search)
+   http://localhost:8080/test - POST (Add record by passing input in json format)
+```
+
 ### Run the application
 ```sh
    mvn spring-boot:run

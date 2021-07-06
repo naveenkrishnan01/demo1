@@ -6,6 +6,7 @@ import com.app.demo1.jpa.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,5 +36,8 @@ public class UserService {
             System.out.println("Table is empty");  // log4j can be used to handle this for logging
         }
          return userById;
+    }
+    public List<UserEntity> getNameByPartialSearch(String firstName){
+        return userRepository.findByPartialName(firstName);
     }
 }
