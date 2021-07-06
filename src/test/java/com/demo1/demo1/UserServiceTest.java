@@ -65,4 +65,28 @@ public class UserServiceTest {
 
 
     }
+
+    @Test
+    public void testOnePartialSearch() {
+        List<UserEntity> partialList = new ArrayList<>();
+        UserEntity partialOne = new UserEntity("wayne", "Rooney");
+        partialList.add(partialOne);
+
+        when(dao.getNameByPartialSearch("way")).thenReturn(partialList);
+    }
+
+    @Test
+    public void testMultiplePartialSearch() {
+        List<UserEntity> multipleList = new ArrayList<>();
+        UserEntity listOne = new UserEntity("Roger", "Federer");
+        UserEntity listtwo = new UserEntity("Roger1", "Federer1");
+
+        multipleList.add(listOne);
+        multipleList.add(listtwo);
+
+        when(dao.getNameByPartialSearch("Rog")).thenReturn(multipleList);
+
+        assertEquals(2, multipleList.size());
+
+    }
 }
