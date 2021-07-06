@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Lambda Sample Project
+
+Resources:
+
+  Users:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: "lambda function handler name"
+      CodeUri: ./target/"jar_file_name".jar
+      Runtime: java8
+      Timeout: 300
+      Environment:
+        Variables:
+          ENVIRONMENT: "test"
+          dbHost: "ip"
+          dbPort: "port"
+          dbName: "name"
+          dbUsername: "username"
+          dbPassword: "password"
+      Events:
+        Users:
+          Type: Api
+          Properties:
+            Path: /test
+            Method: get

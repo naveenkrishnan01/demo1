@@ -43,4 +43,8 @@ Unit test - Junit5/Mockito
 ```sh
    mvn spring-boot:run
 ```
+###Test the application
+```sh
+   mvn test
+```
 
