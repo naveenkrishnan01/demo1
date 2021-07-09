@@ -1,6 +1,8 @@
 
 package com.app.demo1.Services;
 
+import com.app.demo1.Exception.UserExistException;
+import com.app.demo1.Exception.UserNotFoundException;
 import com.app.demo1.data.UserEntity;
 import com.app.demo1.jpa.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,22 +24,28 @@ public class UserService {
 
     }
 
-    public UserEntity createUser(UserEntity userEntity) {
-            userEntity = userRepository.save(userEntity);
-            return userEntity;
-
+    public UserEntity createUser(UserEntity userEntity) throws UserExistException {
+        checkForDuplicates(userEntity);
+        userEntity = userRepository.save(userEntity);
+        return userEntity;
     }
 
-    public Optional<UserEntity> findByUserId(Integer Id) {
+    public Optional<UserEntity> findByUserId(Integer Id) throws UserNotFoundException {
         Optional<UserEntity> userById = userRepository.findById(Id);
-        if (userById.isPresent()){
-            return userById;
-        } else {
-            System.out.println("Table is empty");  // log4j can be used to handle this for logging
-        }
-         return userById;
+        if (!userById.isPresent()) throw new UserNotFoundException("User not found in the user Table");
+        return userById;
     }
     public List<UserEntity> getNameByPartialSearch(String firstName){
         return userRepository.findByPartialName(firstName);
+    }
+
+    public void checkForDuplicates(UserEntity userEntity) throws UserExistException {
+        if (userEntity.getFirstName() !=null){
+            for(UserEntity search : findAllUser()){
+                if(search.getFirstName().equalsIgnoreCase(userEntity.getFirstName())){
+                    throw new UserExistException("User exist in the Table");
+                }
+            }
+        }
     }
 }
