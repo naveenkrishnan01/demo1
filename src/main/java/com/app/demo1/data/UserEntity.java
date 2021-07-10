@@ -2,15 +2,16 @@ package com.app.demo1.data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "user")
-public class UserEntity implements Serializable {
+public class UserEntity {
 
 
       @Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
+      @GeneratedValue
       @Column(name="id")
       private Integer id;
 
@@ -20,6 +21,9 @@ public class UserEntity implements Serializable {
       @NotBlank
       @Column(name ="last_name")
       private String lastName;
+
+      @OneToMany(mappedBy = "userOrder")
+      private List<OrderEntity> orders;
 
     public UserEntity(String firstName, String lastName) {
         this.firstName = firstName;
@@ -54,12 +58,21 @@ public class UserEntity implements Serializable {
         this.lastName = lastName;
     }
 
+    public List<OrderEntity> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<OrderEntity> orders) {
+        this.orders = orders;
+    }
+
     @Override
     public String toString() {
         return "UserEntity{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", orders=" + orders +
                 '}';
     }
 }

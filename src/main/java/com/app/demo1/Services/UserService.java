@@ -17,8 +17,8 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public Iterable<UserEntity> findAllUser() {
 
+    public Iterable<UserEntity> findAllUser() {
         Iterable<UserEntity> result = userRepository.findAll();
           return  result;
 

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/test")
 public class UserController {
 
 
@@ -26,12 +26,12 @@ public class UserController {
     Good for small set of record set, for large set we need implement some limit size
     or pagination
      */
-    @GetMapping(value = "/test")
+    @GetMapping()
     public Iterable<UserEntity> getUser() {
         return userService.findAllUser();
     }
 
-   @GetMapping("/test/{id}")
+   @GetMapping("/{id}")
     public Optional<UserEntity> getUserById(@PathVariable Integer id) {
        try {
            return userService.findByUserId(id);
@@ -49,7 +49,7 @@ public class UserController {
          "lastName": "Rogers"
 }
      */
-    @PostMapping("/test")
+    @PostMapping()
     public UserEntity createUser(@Valid @RequestBody UserEntity userEntity) {
        try {
            return userService.createUser(userEntity);
