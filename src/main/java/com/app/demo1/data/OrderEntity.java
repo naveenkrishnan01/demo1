@@ -1,12 +1,13 @@
 package com.app.demo1.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 
 @Entity()
 @Table(name = "orders")
-public class OrderEntity {
+public class OrderEntity extends RepresentationModel<OrderEntity> {
 
     @Id
     @GeneratedValue

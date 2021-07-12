@@ -1,13 +1,16 @@
 package com.app.demo1.data;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import javax.validation.constraints.NotBlank;
 
+
 @Entity
 @Table(name = "user")
-public class UserEntity {
+public class UserEntity extends RepresentationModel<UserEntity> {
 
 
       @Id
