@@ -33,11 +33,12 @@ Unit test - Junit5/Mockito
 ```
 ### Following api can be tested
 ```sh
-   http://localhost:8080/test  - GET (gives all records in DB)
-   http://localhost:8080/test/1 - GET (Will give one record back based on id)
-   http://localhost:8080/name/way - GET (Will give all the records that matches the search with name starting with "way")
-   http://localhost:8080/test - POST (Add record by passing input in json format)
+   http://localhost:8080/test/?date1=2021/07/12
 ```
+Test Result
+
+ ![Screenshot](testResult.png)
+
 
 ### Run the application
 ```sh
