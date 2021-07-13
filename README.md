@@ -9,26 +9,18 @@ Spring Dependencies - check pom.xml
 
 ### Code Component
 ```sh
-Persistent Layer
-  - JPA(CrudRepository)
-  - DataBase - Mysql
+
 
 Service Layer
-  - Crud Operations and any additional logic can be added thru services
-
-Data Transfer Object(DTO) - Table Entity
-  - Java Object to transfer the data into the database
-  
+  - Build a Date Conversion method to convert String Date as input to get a Day of the week for particlaur date
+ 
 Controller - Api methods
-  - Api action for crud operations for presenting the input and 
-     output operation in json format(default format)
+  - Pass the date as paramter in YYYY/mm/dd format
+  - Output would be the day of the week like Sunday, Monday etc
      
 Configuration
-   - DB connection for local machine
-   - Raw sql for initial setup
+   - spring.mvc.format.date=yyyy-MM-dd
         
-Unit test - Junit5/Mockito
-  - Test for Jpa and Services
 
 ```
 ### Following api can be tested
@@ -39,6 +31,11 @@ Test Result
 
  ![Screenshot](testResult.png)
 
+
+### Compile the code
+```sh
+   We need to set the username and password for mysql in local machine to compile the code.
+```
 
 ### Run the application
 ```sh
