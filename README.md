@@ -28,6 +28,15 @@ Controller - REST API
    http://localhost:8080/sendEmailNotification - GET (Sends Message to all email user who accepted subscription) 
 ```
 
+####Api call for Subscribing 
+![Screenshot](Rest-call-Subscription.png)
+
+#### Email for Subscription
+![Screenshot](Subscribe-email.png)
+
+#### Email Message
+![Screenshot](Email-message.png)
+
 ### Run the application
 ```sh
    mvn spring-boot:run
