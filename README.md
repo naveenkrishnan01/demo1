@@ -1,4 +1,7 @@
 ### Project Description
+- This code that is committed will show how we can send email notification using RESTAPI calls with SpringBoot/AWS.
+- The aws service this used to make it happen is SNS (Simple Notification Service) and the protocol used is email for notification
+
 
 ### Library Reference
 ```sh
@@ -9,34 +12,20 @@ Spring Dependencies - check pom.xml
 
 ### Code Component
 ```sh
-Persistent Layer
-  - JPA(CrudRepository)
-  - DataBase - Mysql
-
-Service Layer
-  - Crud Operations and any additional logic can be added thru services
-
-Data Transfer Object(DTO) - Table Entity
-  - Java Object to transfer the data into the database
-  
-Controller - Api methods
-  - Api action for crud operations for presenting the input and 
-     output operation in json format(default format)
+ 
      
 Configuration
-   - DB connection for local machine
-   - Raw sql for initial setup
+   - Mail Config (validates you aws keys and region for connection)
         
-Unit test - Junit5/Mockito
-  - Test for Jpa and Services
-
+Controller - REST API
+  - Two Api calls
+  1) Subscription send to email user that you are subscribing for this topic which has to be accepted by the email user
+  2) Message send to the email user who subscriobed to the email
 ```
 ### Following api can be tested
 ```sh
-   http://localhost:8080/test  - GET (gives all records in DB)
-   http://localhost:8080/test/1 - GET (Will give one record back based on id)
-   http://localhost:8080/name/way - GET (Will give all the records that matches the search with name starting with "way")
-   http://localhost:8080/test - POST (Add record by passing input in json format)
+   http://localhost:8080/addSubscription/<your-emailaddress> - GET (Subscription api)
+   http://localhost:8080/sendEmailNotification - GET (Sends Message to all email user who accepted subscription) 
 ```
 
 ### Run the application
