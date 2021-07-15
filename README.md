@@ -27,6 +27,11 @@ Controller - REST API
    http://localhost:8080/addSubscription/<your-emailaddress> - GET (Subscription api)
    http://localhost:8080/sendEmailNotification - GET (Sends Message to all email user who accepted subscription) 
 ```
+### Two files for Email Notification
+```sh
+   src/main/java/com/app/demo1/Config/MailConfig.java
+   src/main/java/com/app/demo1/contoller/SnsEmailNotification.java
+```
 
 ####Api call for Subscribing 
 ![Screenshot](Rest-call-Subscription.png)
