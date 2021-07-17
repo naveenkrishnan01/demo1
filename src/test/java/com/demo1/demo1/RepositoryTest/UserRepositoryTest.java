@@ -1,4 +1,4 @@
-package com.demo1.demo1;
+package com.demo1.demo1.RepositoryTest;
 
 import com.app.demo1.Services.UserService;
 import com.app.demo1.data.UserEntity;

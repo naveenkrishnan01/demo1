@@ -1,4 +1,4 @@
-package com.demo1.demo1;
+package com.demo1.demo1.ServiceTest;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
