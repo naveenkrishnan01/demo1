@@ -25,7 +25,7 @@ public class UserEntity extends RepresentationModel<UserEntity> {
       @Column(name ="last_name")
       private String lastName;
 
-      @OneToMany(mappedBy = "userOrder")
+      @OneToMany(mappedBy = "userOrder", cascade = CascadeType.ALL, orphanRemoval = true)
       private List<OrderEntity> orders;
 
     public UserEntity(String firstName, String lastName) {

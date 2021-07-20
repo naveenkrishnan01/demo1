@@ -12,7 +12,7 @@ public class DateEntity {
     private String date1;
 
     public DateEntity() {
-        Id = id;
+        this.Id = Id;
         this.date1 = date1;
     }
 
