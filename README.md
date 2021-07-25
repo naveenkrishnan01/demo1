@@ -53,6 +53,12 @@ swagger3.description= All the Api in this Project
                 .build();
     }
 ```
+### Swagger UI
+
+   ![Screenshot](Swagger1.png)
+   
+  ![Screenshot](Swagger2.png)
+
 
 ### Run the application
 ```sh
