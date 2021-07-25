@@ -4,39 +4,54 @@
 ```sh
 Java-8
 Maven - Build Tool # Gradle is another option
+Swagger - Open API - 3.0.0 version
 Spring Dependencies - check pom.xml
 ```
-
-### Code Component
+###  pom library for swagger
 ```sh
-Persistent Layer
-  - JPA(CrudRepository)
-  - DataBase - Mysql
-
-Service Layer
-  - Crud Operations and any additional logic can be added thru services
-
-Data Transfer Object(DTO) - Table Entity
-  - Java Object to transfer the data into the database
-  
-Controller - Api methods
-  - Api action for crud operations for presenting the input and 
-     output operation in json format(default format)
-     
-Configuration
-   - DB connection for local machine
-   - Raw sql for initial setup
-        
-Unit test - Junit5/Mockito
-  - Test for Jpa and Services
-
+	   <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
 ```
-### Following api can be tested
+### application-properties file
 ```sh
-   http://localhost:8080/test  - GET (gives all records in DB)
-   http://localhost:8080/test/1 - GET (Will give one record back based on id)
-   http://localhost:8080/name/way - GET (Will give all the records that matches the search with name starting with "way")
-   http://localhost:8080/test - POST (Add record by passing input in json format)
+swagger3.enable=true
+swagger3.title=Spring Demo Application
+swagger3.description= All the Api in this Project
+```
+
+### Configuration
+```sh
+ @Bean
+    public Docket docket() {
+        return new Docket(DocumentationType.OAS_30)
+                .pathMapping("/")
+                // Whether to enable
+                .enable(enableSwagger)
+                // swagger ui header information
+                .apiInfo(apiInfo());
+
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title(title)
+                .description(description)
+                .build();
+    }
 ```
 
 ### Run the application
