@@ -1,5 +1,6 @@
 ### Project Description
-
+Swagger Open-API implementation using Springboot.
+The configuration is quite simple to implement the api-docs and api-ui for swagger
 ### Library Reference
 ```sh
 Java-8
