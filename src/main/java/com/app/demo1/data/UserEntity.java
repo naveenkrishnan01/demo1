@@ -1,9 +1,6 @@
 package com.app.demo1.data;
 
-import org.springframework.hateoas.RepresentationModel;
-
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 import javax.validation.constraints.NotBlank;
 
@@ -25,16 +22,21 @@ public class UserEntity  {
       @Column(name ="last_name")
       private String lastName;
 
-//      @OneToMany(mappedBy = "userOrder", cascade = CascadeType.ALL, orphanRemoval = true)
-//      private List<OrderEntity> orders;
+     @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+      private List<DeptEntity> deptEntityList;
 
-    public UserEntity(String firstName, String lastName) {
+    public UserEntity(String firstName, String lastName, List<DeptEntity> deptEntityList) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.deptEntityList = deptEntityList;
     }
 
-    public  UserEntity() {
+    public UserEntity()  {
 
+    }
+    public  UserEntity(List<DeptEntity> deptEntityList) {
+
+        this.deptEntityList = deptEntityList;
     }
 
     public Integer getId() {

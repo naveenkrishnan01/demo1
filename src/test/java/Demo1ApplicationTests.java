@@ -20,5 +20,4 @@ class Demo1ApplicationTests {
 	public void contextLoads() {
 		Assertions.assertNotNull(userController);
 	}
-
 }
