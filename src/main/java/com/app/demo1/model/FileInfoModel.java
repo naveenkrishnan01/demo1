@@ -2,7 +2,7 @@ package com.app.demo1.model;
 
 public class FileInfoModel {
 
-    private String filePath = "~/demo1/src/main/resources";
+    private String filePath = "~/demo1/src/main/resources/spreadSheet";
     private String fileName;
     private String sheetName;
 
