@@ -5,6 +5,7 @@ import com.app.demo1.Exception.UserNotFoundException;
 import com.app.demo1.Services.UserService;
 import com.app.demo1.data.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -32,6 +33,7 @@ public class UserController {
     }
 
    @GetMapping("/{id}")
+   @Cacheable(key = "#id", value = "User")
     public Optional<UserEntity> getUserById(@PathVariable Integer id) {
        try {
            return userService.findByUserId(id);

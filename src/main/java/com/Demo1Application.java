@@ -34,6 +34,6 @@ public class Demo1Application implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		ArgumentCommandLine argCommandLine = new ArgumentCommandLine();
 		FileInfoModel fileInfoModel = argCommandLine.parseArgs(args);
-		List<RecordModel> recModel = excelProcessService.processExcel(fileInfoModel);
+	//	List<RecordModel> recModel = excelProcessService.processExcel(fileInfoModel);
 	}
 }
